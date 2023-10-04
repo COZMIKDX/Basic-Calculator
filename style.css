@@ -1,19 +1,32 @@
 .calculator-body {
-
+    background-color: rgb(230, 230, 230);
+    max-width: 70%;
+    padding: 10px;
 }
 
 .display {
-
+    text-align: right;
 }
 
 .button-pad {
-
+    display: flex;
+    flex-direction: column; /*Not necessary but I like to be explicit*/
+    width: 100%;
 }
 
 .button-row {
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .button {
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid rgb(243, 243, 243);
+    aspect-ratio: 16/5;
+    padding: 2%;
+    text-align: center;
     
 }
