@@ -1,11 +1,15 @@
 .calculator-body {
     background-color: rgb(230, 230, 230);
-    max-width: 70%;
-    padding: 10px;
+    aspect-ratio: 73/110;
+    width: 40%;
+    padding: 2%;
 }
 
 .display {
     text-align: right;
+    padding: 10%;
+    margin-bottom: 10%; 
+    font-size: 5vw;
 }
 
 .button-pad {
@@ -17,16 +21,22 @@
 .button-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
+    margin-bottom: 2%
 }
 
 .button {
     box-sizing: border-box;
     background-color: white;
     border: 1px solid rgb(243, 243, 243);
-    aspect-ratio: 16/5;
+    aspect-ratio: 16/4;
+    width: 20%;
     padding: 2%;
     text-align: center;
-    
+    margin-right: 2%;
+}
+
+.button-row > .button:nth-child(4) {
+    margin-right: 0px;
 }
