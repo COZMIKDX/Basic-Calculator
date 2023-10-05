@@ -34,8 +34,9 @@
     aspect-ratio: 16/4;
     width: 20%;
     padding: 2%;
-    text-align: center;
     margin-right: 2%;
+    text-align: center;
+    font-size: 3vw;
 }
 
 .button-row > .button:nth-child(4) {
