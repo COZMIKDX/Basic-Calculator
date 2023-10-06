@@ -16,7 +16,7 @@ slider2.addEventListener("input", () => {
 
 // Since this is a basic calculator, it will only do two arguments. 
 let inputStack = [];
-let temporaryOperand = "";
+let temporaryOperand = [];
 let operatorList = ["plus", "minus", "divide", "multiply"];
 let operatorSelect = {
     plus: function(operand1, operand2) {
@@ -34,28 +34,41 @@ let operatorSelect = {
 };
 
 function isOperator(value) {
-    if (value in operatorList) {
-        return true;
-    }
+    return operatorList.includes(`${value}`);
 }
 
 function buttonPress(event) {
     if (isOperator(event.target.id)) {
-        inputStack.push(temporaryOperand);
-        temporaryOperand = "";
+        let operand = buildOperand();
+        inputStack.push(operand);
         inputStack.push(event.target.id);
+        console.log("operator");
     } else if (event.target.id == "equals") {
+        let operand = buildOperand();
+        inputStack.push(operand);
         calculate(inputStack);
-    } else {
-        temporaryOperand = temporaryOperand.concat(event.target.id);
+        inputStack = [];
+        console.log("equals");
+    } else { // Number input. Must build the operand
+        temporaryOperand.push(event.target.id);
+        console.log("number");
+    }
+}
+
+function buildOperand() {
+    let result = "";
+    for (let number of temporaryOperand) {
+        result += number;
     }
 
-    console.log(inputStack);
+    temporaryOperand = [];
+    return result;
 }
 
 function calculate(inputStack) {
-    let result = operatorSelect[inputStack[1]](inputStack[0], inputStack[2]);
+    let result = operatorSelect[inputStack[1]](Number(inputStack[0]), Number(inputStack[2]));
     setDisplay(result);
+    console.log(result);
 }
 
 let display = document.getElementById("display-text");
